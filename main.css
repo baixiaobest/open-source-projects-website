@@ -181,8 +181,10 @@ to be positioned in the center of parent division*/
 }
 
 pre{
-	width: 50%;
-	margin: 20px auto;
+	text-align: left;
+}
+.prettyprint{
+	width: inherit;
 }
 
 @media screen and (max-width: 850px){
@@ -228,7 +230,6 @@ pre{
 		top: 0px;
 	}
 }
-
 
 .group:before,
 .group:after {
