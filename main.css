@@ -31,19 +31,21 @@ header nav{
 nav .nav_table{
 	display: table;
 	table-layout: fixed;
-	float: left;
+	//float: left;
 	height: 100%;
+	margin-right: auto;
+	margin-left: auto;
 }
 #left{
 	width: 50%;
 	min-width: 400px;
-}
+}/*
 #right{
 	float: right;
 	width: 30%;
 	margin-right: 30px;
 	min-width: 230px;
-}
+}*/
 header nav	ul{
 	display: table-row;
 	margin-top: 10px;
@@ -75,7 +77,7 @@ header a:hover, header a:active{
 	color: #D7D6D8;
 }
 
-
+/*************************Contents***************************/
 
 .contents{
 	overflow: hidden;
@@ -124,6 +126,7 @@ header a:hover, header a:active{
 }
 
 
+/*************************Footer***************************/
 
 footer{
 	background-color: #9D9D9D;
@@ -187,6 +190,9 @@ pre{
 	width: inherit;
 }
 
+
+/*************************Media Query***************************/
+
 @media screen and (max-width: 850px){
 	.blog_tag{
 		width: inherit;
@@ -207,25 +213,25 @@ pre{
 	header{
 		width: inherit;
 	}
-	header nav{
+	/*header nav{
 		width: inherit;
 		height: 60px;
-	}
+	}*/
 	header nav ul{
 		width: inherit;
 	}
-	nav .nav_table{
+	/*nav .nav_table{
 		height: 50%;
-	}
+	}*/
 	#left{
 		width: 100%;
 		float: none;
 		margin: 0 auto 0 auto;
-	}
+	}/*
 	#right{
 		float: none;
 		margin: 0 auto 0 auto;
-	}
+	}*/
 	.blog_tag article h1, .blog_tag article p{
 		top: 0px;
 	}

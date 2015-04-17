@@ -1,0 +1,29 @@
+h1{
+	font-family: Geogia;
+	text-align: center;
+	color: #444;
+}
+h2{
+	font-family: Geogia;
+	color: #444;
+}
+p{
+	font-family: Verdana;
+	line-height: 1.5;
+}
+img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.intro{
+	font-style: italic;
+	text-align: center;
+	font-size: 13px;
+	margin-right: 13%;
+	margin-left: 13%;
+	color: #777;
+}
+.subTitle{
+	margin-left: 5%;
+}
