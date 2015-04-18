@@ -1,7 +1,7 @@
 <DOCTYPE html>
 	<html>
 		<head>
-			<title>xBee tutorials</title>
+			<title>xBee tutorial</title>
 			<link rel="stylesheet" href="../main.css">
 			<link rel="stylesheet" href="blog.css">
 			<link href="../google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
@@ -10,30 +10,67 @@
 		
 		<body onload="prettyPrint()">
 			<header>
-				<a href="index.html"><img src="../images/logo.png" alt="baixiao opensource logo"></a>
+				<a href="../home.html"><img src="../images/logo.png" alt="baixiao opensource logo"></a>
 				<!--h1 id="myName">Baixiao Huang</h1-->
 
 				<nav class="group">
 					<section class="nav_table" id="left">
 						<ul>
-							<li><a href="home.html">Home</a></li>
-							<li><a href="projects.html">Projects</a></li>
-							<li><a href="tutorials.html">Tutorials</a></li>
-							<li><a href="aboutme.html">About me</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="../home.html">Home</a></li>
+							<li><a href="../projects.html">Projects</a></li>
+							<li><a href="../tutorials.html">Tutorials</a></li>
+							<li><a href="../aboutme.html">About me</a></li>
+							<li><a href="../contact.html">Contact</a></li>
 						</ul>
 					</section>
 				</nav>
 			</header>
 			<section class="contents">
 				
-				<h1>Xbee Tutorials</h1>
+				<h1>Xbee Tutorial</h1>
 				<figure><img width="200" height="200" src="../images/main_page/xbee.png"><figure>
-				<p class="intro">This is my first tutorial on xBee. I will be introducing the basics of configuring xbee radio module and interfacing it with Arduino and Raspberry Pi<p>
+				<p class="intro">This is my first tutorial on xBee. I will be introducing the basics of configuring xBee radio module, xBee network setup, interfacing it with Arduino and Raspberry Pi, and file transfer from computer to Raspberry Pi with xBee.<p>
 				<h2 class="subTitle">What is xBee?</h2>
-				<p>xBee is currently popular wireless transceiver module. It is highly easy to use,you can transmit and receive data through serial port. So that it can be easily connected to Arduino or computers with simple wiring. Also, it is simple to configure, and you can create you own personal wireless network with few xBees modules, or just a pair of xBees exchanging data.</p>
+				<p>xBee is popular wireless transceiver module. It is highly easy to use,you can transmit and receive data through <em>serial port</em>. So that it can be easily connected to Arduino or computers with simple wiring. Also, it is simple to configure, and you can create you own personal <em>wireless network</em> with few xBees modules, or just a pair of xBees exchanging data.</p>
+				
+				<h2 class="SubTitle">xBee Network</h2>
+				<p>As I had mentioned, xBee can be setup as various network topologies. This simplest network is a pair of xBee.</p>
+
+				<figure><img width="100%" src="http://examples.digi.com/wp-content/uploads/2012/06/XBeeSimpleChatDiagram.jpg" alt="baixiao xBee pair"><img>
+				<caption>Source: digi.com</caption>
+				</figure>
+
+				<p>This setup is very useful when you want one to one control. For example, when you control a RC car, you want one end (RC car) dedicated to listening only to your controller end; and your controller only sends data to your RC car.<br/><br/>
+				Another useful network topology is STAR Network or BroadCast Network.</p>
+				
+				<figure><img src="http://xbee.wikispaces.com/file/view/Xbee_Star.jpg/175626687/280x264/Xbee_Star.jpg" alt="Baixiao Huang Star Network"></img>
+				<caption>Source: wikispaces.com</caption>
+				</figure>
+
+				<p>In the setup, the coordinator(yellow) node is configured to send messages to all four end devices in red. This is more like a radio station, the yellow node is the station, and end devices are listeners. But what the network is different from the radio station is that all the end devices can also send data to the coordinator.<br/><br/> 
+				This network is useful for monitoring mulfiple sensors at once. An example would be that those end devices are connected to temperature sensors at different location, so that the coordinator in the center can easily grab the data from different sensors.<br/><br/>
+				Before we jump into the setup of above two networks, let's take a look on other possibilities of Network setup.
+				</p>
+
+				<figure><img height="300" src="http://xbee.wikispaces.com/file/view/Xbee_CLST.jpg/175627037/Xbee_CLST.jpg" alt="Baixiao Tree Network">
+				<caption>Source: wikispaces.com</caption>
+				</figure>
+
+				<p>This is a Tree netwok. What is different from previous two is that it has a router, which is basically a relay that extends the range of network. In this Graph, the router gets the data from end device and send to the coordinator.<br/><br/>
+				Also, we can even construct more complicated Mesh Network
+				</p>
+
+				<figure>
+					<img height="330" src="http://xbee.wikispaces.com/file/view/Xbee_Mesh.jpg/175624057/420x485/Xbee_Mesh.jpg" alt="Baixiao Huang Mesh Network">
+					<caption>Source: wikispaces.com</caption>
+				</figure>
+
+				<h2 class="">xBee Pair Network Setup</h2>
+				<p></p>
 
 			</section>
+
+
 			<footer>
 				<p class="quote" id="main_page_quote">The problem in this business isn't to keep people from stealing your ideas; it's making them steal your ideas!" --Howard Alken</p>
 				<a id="BW_logo">Black White Logo</a>

@@ -19,10 +19,18 @@ img{
 .intro{
 	font-style: italic;
 	text-align: center;
-	font-size: 13px;
+	font-size: 15px;
 	margin-right: 13%;
 	margin-left: 13%;
 	color: #777;
+}
+caption{
+	font-style: italic;
+	border: #000 2px solid;
+	text-align: center;
+}
+em{
+	font-weight: bold;
 }
 .subTitle{
 	margin-left: 5%;
