@@ -56,7 +56,7 @@
 				<caption>Source: wikispaces.com</caption>
 				</figure>
 
-				<p>This is a Tree netwok. What is different from previous two is that it has a router, which is basically a relay that extends the range of network. In this Graph, the router gets the data from end device and send to the coordinator.<br/><br/>
+				<p>This is a Tree netwok. What is different from previous two is that it has a router, which is basically a relay that extends the range of network. In this Graph, physical distance between end devices and coordinator may be out of xBee radio range; to solve this, we add a rounter in between, acting as a relay to grab data from end devices and transfer it to coordinator.<br/><br/>
 				Also, we can even construct more complicated Mesh Network
 				</p>
 
@@ -66,8 +66,29 @@
 				</figure>
 
 				<h2 class="">xBee Pair Network Setup</h2>
-				<p></p>
+				<p>Here is a list of materials we need before we could set up the xBee</p>
+				<ul>
+					<li>2x xBee modules: we need at least two to talk to each other</li>
+					<li>1 <a href="https://www.sparkfun.com/products/11812" target="_blank">xBee explorer</a>: used to read and write data to xBee module</li>
+					<li>Download XCTU software: software used to interfacing xBee explorer</li>
+					<li>1 Arduino</li>
+					<li>1 PC</li>
+				</ul>
+				<p>So let's pair two xBees up and let them talk.</br>
+				Plug your xBee to explorer, connect explorer to computer and launch the XCTU software.
+				</p>
 
+				<figure>
+				<img width="600" src="../images/tutorials_page/add_module.gif" alt="Baixiao add module">
+				</figure>
+
+				<p>There are some setting you need to change to make create pair network. You will see Channel, Pan ID, DH, DL, MY; these should be configured<br/><br/>
+				<em>Channel:</em>This select which frequency or channel xBee will be using. xBee operates at 2.4GHz, but with different channel, the frequency varies a little bit. So two xBees need to be set to the same channel (or frequency) before they can talk to each other.<br/><br/>
+				<em>PAN ID:</em> It stands for Personal Area Network. It defines in which network a xBee resides. Thus you need to put all xBees inside the <strong>same</strong> network to let them talk. You can defines the number vary from 0x0000 to 0xFFFF in hexadecimal.<br/><br/>
+				<em>MY</em>: The address of currently selected xBee module. It serves as an ID number for your xBee.<br/><br/>
+				<em>DL,DH</em>: This two defines the destination address (or MY address) of xBee you are talking to.
+				Normally, you need to set the DH to 0 and DL to the MY address of destination xBee.
+				</p>
 			</section>
 
 
