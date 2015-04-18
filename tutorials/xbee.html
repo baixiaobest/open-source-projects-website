@@ -29,26 +29,26 @@
 				
 				<h1>Xbee Tutorial</h1>
 				<figure><img width="200" height="200" src="../images/main_page/xbee.png"><figure>
-				<p class="intro">This is my first tutorial on xBee. I will be introducing the basics of configuring xBee radio module, xBee network setup, interfacing it with Arduino and Raspberry Pi, and file transfer from computer to Raspberry Pi with xBee.<p>
+				<p class="intro">This is my first tutorial on xBee. I will be introducing the basics of configuring xBee radio module, different xBee network configurations, interfacing it with Arduino and Raspberry Pi, and file transfer from computer to Raspberry Pi with xBee.<p>
 				<h2 class="subTitle">What is xBee?</h2>
-				<p>xBee is popular wireless transceiver module. It is highly easy to use,you can transmit and receive data through <em>serial port</em>. So that it can be easily connected to Arduino or computers with simple wiring. Also, it is simple to configure, and you can create you own personal <em>wireless network</em> with few xBees modules, or just a pair of xBees exchanging data.</p>
+				<p>xBee is popular wireless transceiver module. It is highly easy to use,you can transmit and receive data through <em>serial port</em>. So that it can be easily connected to Arduino or computers with simple wiring. Also, it is simple to configure at you will, you can even create your own complicated personal <em>wireless network</em> with few xBees modules; or just a network as simple as a pair of xBees exchanging data.</p>
 				
-				<h2 class="SubTitle">xBee Network</h2>
+				<h2 class="SubTitle">xBee Networks</h2>
 				<p>As I had mentioned, xBee can be setup as various network topologies. This simplest network is a pair of xBee.</p>
 
 				<figure><img width="100%" src="http://examples.digi.com/wp-content/uploads/2012/06/XBeeSimpleChatDiagram.jpg" alt="baixiao xBee pair"><img>
 				<caption>Source: digi.com</caption>
 				</figure>
 
-				<p>This setup is very useful when you want one to one control. For example, when you control a RC car, you want one end (RC car) dedicated to listening only to your controller end; and your controller only sends data to your RC car.<br/><br/>
-				Another useful network topology is STAR Network or BroadCast Network.</p>
+				<p>This setup is very useful when you want one to one control. For example, when you control a RC car, you want one end (RC car) to be dedicated to listening only to your controller end; and you want the  controller only to send data to your RC car.<br/><br/>
+				Another useful network topology is STAR Network or Broadcast Network.</p>
 				
 				<figure><img src="http://xbee.wikispaces.com/file/view/Xbee_Star.jpg/175626687/280x264/Xbee_Star.jpg" alt="Baixiao Huang Star Network"></img>
 				<caption>Source: wikispaces.com</caption>
 				</figure>
 
-				<p>In the setup, the coordinator(yellow) node is configured to send messages to all four end devices in red. This is more like a radio station, the yellow node is the station, and end devices are listeners. But what the network is different from the radio station is that all the end devices can also send data to the coordinator.<br/><br/> 
-				This network is useful for monitoring mulfiple sensors at once. An example would be that those end devices are connected to temperature sensors at different location, so that the coordinator in the center can easily grab the data from different sensors.<br/><br/>
+				<p>In the setup, the coordinator(yellow) node is configured to send messages to all four end devices in red. This is more like a radio station, the yellow node is the station, and end devices are listeners. But what it is different from the radio station is that all the end devices can also send data to the coordinator.<br/><br/> 
+				This network can be used for monitoring multiple sensors at once. An example would be that those end devices are connected to temperature sensors at different locations, so that the coordinator in the center can easily grab the data from different sensors.<br/><br/>
 				Before we jump into the setup of above two networks, let's take a look on other possibilities of Network setup.
 				</p>
 
@@ -56,7 +56,7 @@
 				<caption>Source: wikispaces.com</caption>
 				</figure>
 
-				<p>This is a Tree netwok. What is different from previous two is that it has a router, which is basically a relay that extends the range of network. In this Graph, physical distance between end devices and coordinator may be out of xBee radio range; to solve this, we add a rounter in between, acting as a relay to grab data from end devices and transfer it to coordinator.<br/><br/>
+				<p>This is a Tree network. What is different from previous two is that it has a router, which is basically a relay that extends the range of network. In this graph, physical distance between end devices and coordinator may be out of xBee radio range; to solve this, we add a rounter in between, acting as a relay to grab data from end devices and transfer it to coordinator.<br/><br/>
 				Also, we can even construct more complicated Mesh Network
 				</p>
 
@@ -65,7 +65,7 @@
 					<caption>Source: wikispaces.com</caption>
 				</figure>
 
-				<h2 class="">xBee Pair Network Setup</h2>
+				<h2 class="subtitle">xBee Pair Network Setup</h2>
 				<p>Here is a list of materials we need before we could set up the xBee</p>
 				<ul>
 					<li>2x xBee modules: we need at least two to talk to each other</li>
@@ -79,11 +79,11 @@
 				</p>
 
 				<figure>
-				<img width="600" src="../images/tutorials_page/add_module.gif" alt="Baixiao add module">
+				<img width="100%" src="../images/tutorials_page/add_module.gif" alt="Baixiao add module">
 				</figure>
 
 				<p>There are some setting you need to change to make create pair network. You will see Channel, Pan ID, DH, DL, MY; these should be configured<br/><br/>
-				<em>Channel:</em>This select which frequency or channel xBee will be using. xBee operates at 2.4GHz, but with different channel, the frequency varies a little bit. So two xBees need to be set to the same channel (or frequency) before they can talk to each other.<br/><br/>
+				<em>Channel:</em>This select which frequency or channel xBee will be using. xBee operates at roughly 2.4GHz, but with different channel, the frequency varies a little bit. So two xBees need to be set to the same channel (or frequency) before they can talk to each other.<br/><br/>
 				<em>PAN ID:</em> It stands for Personal Area Network. It defines in which network a xBee resides. Thus you need to put all xBees inside the <strong>same</strong> network to let them talk. You can defines the number vary from 0x0000 to 0xFFFF in hexadecimal.<br/><br/>
 				<em>MY</em>: The address of currently selected xBee module. It serves as an ID number for your xBee.<br/><br/>
 				<em>DL,DH</em>: This two defines the destination address (or MY address) of xBee you are talking to.
