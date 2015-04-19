@@ -307,7 +307,7 @@ pre{
 	margin-top: 10px;
 }
 
-.backgroundGreen{
+.backgroundBlue{
 	background-image: linear-gradient(to right, white 50%, #56EEFA 50%);
 }
 
@@ -316,7 +316,15 @@ pre{
 }
 
 .backgroundYellow{
-	background-image: linear-gradient(to right, white 50%, #F1F52C 50%);
+	background-image: linear-gradient(to right, white 50%, #E7B54F 50%);
+}
+
+.backgroundGreen{
+	background-image: linear-gradient(to right, white 50%, #44E52C 50%);
+}
+
+.backgroundPink{
+	background-image: linear-gradient(to right, white 50%, #ED3277 50%);
 }
 
 .separatorLeft, .separatorRight{
@@ -363,6 +371,44 @@ pre{
 	top: 25%;
 }
 
+.socialContainer{
+	position: absolute;
+	height: 60px;
+	width: 260px;
+	left: 25%;
+	top: 35%;
+}
+.socialContainer img{
+	height: 0px;
+	width: 0px;
+	float: left;
+	margin-top: 30px;
+	transition: all 0.5s cubic-bezier(0.3, 1.34, 0.6, 1.35);
+	transition-delay: 0.2s;
+}
+
+.socialContainer img:first-child{
+	margin-left: 30px;
+}
+
+.socialContainer img:not(:first-child){
+	margin-left: 60px;
+}
+
+/*.socialContainer:hover img{
+	height: 50px;
+	width: 50px;
+	margin-top: 5px;
+}
+
+.socialContainer:hover img:first-child{
+	margin-left: 5px;
+}
+
+.socialContainer:hover img:not(:first-child){
+	margin-left: 10px;
+}*/
+
 @media screen and (max-width: 730px){
 	.separatorLeft, .separatorRight{
 		height: 50%;
@@ -380,22 +426,9 @@ pre{
 	}
 	.rightText{
 		top: 10%;
+		left:15%;
+	}
+	.socialContainer{
+		top:10%;
 	}
 }
-
-/*@media screen and (max-width: 750px){
-	.aboutText{
-		position: relative;
-		left: 0;
-		top: 20px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.logoText{
-
-	}
-	#ucla{ 
-		left: 35%;
-		top: 200px;
-	}
-}*/

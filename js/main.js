@@ -1,13 +1,19 @@
 $(document).ready(
 	function(){
-		setWayPoint("aboutSec1","right");
-		setWayPoint("aboutSec2","left");
-		setWayPoint("aboutSec3","right");
+		setWayPointSlide("aboutSec1","right");
+		setWayPointSlide("aboutSec2","left");
+		setWayPointSlide("aboutSec3","right");
+    setWayPointSlide("aboutSec4","left");
+    setWayPointSlide("aboutSec5", "right");
+    setWayPointProperty("aboutSec5", "linkedin",socialTagFirstChildUp, socialTagFirstChildDown);
+    setWayPointProperty("aboutSec5", "github",socialTagChildrenUp, socialTagChildrenDown);
+    setWayPointProperty("aboutSec5", "facebook",socialTagChildrenUp, socialTagChildrenDown);
+    setWayPointProperty("aboutSec5", "quora",socialTagChildrenUp, socialTagChildrenDown);
 	}
 );
 
 
-function setWayPoint(ID, slideInPos, optionalId){
+function setWayPointSlide(ID, slideInPos, optionalId){
 	var waypoint = new Waypoint({
   	element: document.getElementById(ID),
   	handler: function(direction) {
@@ -29,3 +35,44 @@ function setWayPoint(ID, slideInPos, optionalId){
 	})
 };
 
+
+function setWayPointProperty(triggerID, ID, handlerUp, handlerDown){
+  var waypoint = new Waypoint({
+    element: document.getElementById(triggerID),
+    handler: function(direction){
+      var idSelector = "#" + ID;
+      if (direction=="up" && typeof handlerUp != 'undefined'){
+        handlerUp(ID);
+      }else if(direction=="down" && typeof handlerDown != 'undefined'){
+        handlerDown(ID);
+      }
+    },
+    offset: 400
+  })
+};
+
+function socialTagFirstChildDown(id){
+  $("#"+id).css("height", "50px");
+  $("#"+id).css("width", "50px");
+  $("#"+id).css("margin-top", "5px");
+  $("#"+id).css("margin-left", "5px");
+};
+function socialTagFirstChildUp(id){
+  $("#"+id).css("height", "0");
+  $("#"+id).css("width", "0");
+  $("#"+id).css("margin-top", "30px");
+  $("#"+id).css("margin-left", "30px");
+};
+
+function socialTagChildrenDown(id){
+  $("#"+id).css("height", "50px");
+  $("#"+id).css("width", "50px");
+  $("#"+id).css("margin-top", "5px");
+  $("#"+id).css("margin-left", "10px");
+}
+function socialTagChildrenUp(id){
+  $("#"+id).css("height", "0");
+  $("#"+id).css("width", "0");
+  $("#"+id).css("margin-top", "30px");
+  $("#"+id).css("margin-left", "60px");
+};
