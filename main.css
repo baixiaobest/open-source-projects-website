@@ -108,7 +108,7 @@ header nav li:hover{
 
 .contents{
 	overflow: hidden;
-	//min-width: 700px;
+	min-height: 560px;
 }
 .blog_tag{
 	width: 50%;
@@ -174,7 +174,7 @@ footer{
 	position: relative;
 	//min-width: 700px;
 	//margin-top:30px;
-	margin-top: 200px;
+	//margin-top: 200px;
 }
 .quote{
 	font-family: Georgia;
@@ -294,5 +294,108 @@ pre{
     zoom: 1; /* For IE 6/7 (trigger hasLayout) */
 }
 /******************************************************************************
-**********************************CONTACT.HTML*********************************
+**********************************AbountMe.HTML*********************************
 ******************************************************************************/
+
+.aboutmeSec{
+	height: 400px;
+	background-size: 200% 100%;
+	transition: all 0.8s ease;
+}
+
+.aboutmeSec:first-child{
+	margin-top: 10px;
+}
+
+.backgroundGreen{
+	background-image: linear-gradient(to right, white 50%, #56EEFA 50%);
+}
+
+.backgroundRed{
+	background-image: linear-gradient(to right, white 50%, #DE4C4F 50%);
+}
+
+.backgroundYellow{
+	background-image: linear-gradient(to right, white 50%, #F1F52C 50%);
+}
+
+.separatorLeft, .separatorRight{
+	position: relative;
+	width: 49%;
+	min-width: 360px;
+	height: inherit;
+	text-align: center;
+	//border: 2px #000 solid;
+}
+.separatorLeft{
+	float: left;
+}
+.separatorRight{
+	float: right;
+}
+
+.aboutText{
+	position: absolute;
+	font-family: Verdana;
+	font-size: 18px;
+	color: white;
+	line-height: 1.5;
+	text-align: center;
+	width: 330px;
+}
+
+.leftText, .rightText{
+	left: 20%;
+	top:25%;
+}
+
+.logoText{
+	position: absolute;
+	font-family: Verdana;
+	text-align: center;
+	font-size: 50px;
+	color: white;
+	width: 200px;
+}
+
+.leftLogo, .rightLogo{ 
+	left:25%;
+	top: 25%;
+}
+
+@media screen and (max-width: 730px){
+	.separatorLeft, .separatorRight{
+		height: 50%;
+		width: 100%;
+		min-width: none;
+	}
+	.leftLogo{
+		top:10%;
+	}
+	.rightLogo{
+		left: 30%;
+	}
+	.leftText{
+		top: 10%;
+	}
+	.rightText{
+		top: 10%;
+	}
+}
+
+/*@media screen and (max-width: 750px){
+	.aboutText{
+		position: relative;
+		left: 0;
+		top: 20px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.logoText{
+
+	}
+	#ucla{ 
+		left: 35%;
+		top: 200px;
+	}
+}*/
