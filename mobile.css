@@ -10,34 +10,47 @@ header nav ul{
 
 .blog_tag{
 	width: inherit;
-	height: 300px;
+	height: 500px;
 }
 #left{
 	width: 100%;
 	float: none;
 	margin: 0 auto 0 auto;
 }
+
+.blog_tag article h1{
+	font-size: 45px;
+}
+
+.blog_tag article p{
+	font-size: 35px;
+}
+
 .blog_tag article h1, .blog_tag article p{
-	top: 80px;
+	top: 0px
 }
 .mainPageImg{
 	height: 300px;
 }
 
 .myIntro h1{
-	font-size: 50px;
+	font-size: 60px;
 }
 
 .quote{
-	font-size: 30px;
+	font-size: 40px;
 }
 
 .mainPageImg{
-	height: 500px;
+	height: 600px;
 }
 
 header nav li{
-	font-size: 30px;
+	font-size: 40px;
+}
+
+footer{
+	height: 300px;
 }
 
 .legal{
