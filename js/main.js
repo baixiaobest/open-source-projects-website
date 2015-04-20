@@ -15,9 +15,9 @@ $(document).ready(
 
 function setWayPointSlide(ID, slideInPos, optionalId){
 
-  var offsetVal = "50%";
-  if(window.matchMedia( "(max-device-width: 480px)" ).matches)
-    offsetVal = "50%";
+  var offsetVal = "70%";
+  if(window.matchMedia( "(max-device-width: 700px)" ).matches)
+    offsetVal = "bottom-in-view";
 	var waypoint = new Waypoint({
   	element: document.getElementById(ID),
   	handler: function(direction) {
@@ -35,16 +35,16 @@ function setWayPointSlide(ID, slideInPos, optionalId){
     			$(IdSelector).css('background-position', '-100% 0');
     	}
   	},
-  	offset: "bottom-in-view"
+  	offset: offsetVal
 	})
 };
 
 
 function setWayPointProperty(triggerID, ID, handlerUp, handlerDown){
 
-  var offsetVal = "50%";
-  if(window.matchMedia( "(max-device-width: 480px)" ).matches)
-    offsetVal = "50%";
+  var offsetVal = "70%";
+  if(window.matchMedia( "(max-device-width: 700px)" ).matches)
+    offsetVal = "bottom-in-view";
   var waypoint = new Waypoint({
     element: document.getElementById(triggerID),
     handler: function(direction){
@@ -55,7 +55,7 @@ function setWayPointProperty(triggerID, ID, handlerUp, handlerDown){
         handlerDown(ID);
       }
     },
-    offset: "bottom-in-view"
+    offset: offsetVal
   })
 };
 
