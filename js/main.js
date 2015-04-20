@@ -31,7 +31,7 @@ function setWayPointSlide(ID, slideInPos, optionalId){
     			$(IdSelector).css('background-position', '-100% 0');
     	}
   	},
-  	offset: 400
+  	offset: '50%'
 	})
 };
 
