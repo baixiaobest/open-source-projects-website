@@ -1,0 +1,59 @@
+body{
+	width: inherit;
+}
+header{
+	width: inherit;
+}
+header nav ul{
+	width: inherit;
+}
+
+.blog_tag{
+	width: inherit;
+	height: 300px;
+}
+#left{
+	width: 100%;
+	float: none;
+	margin: 0 auto 0 auto;
+}
+.blog_tag article h1, .blog_tag article p{
+	top: 80px;
+}
+.mainPageImg{
+	height: 300px;
+}
+
+.myIntro h1{
+	font-size: 50px;
+}
+
+.quote{
+	font-size: 30px;
+}
+
+.mainPageImg{
+	height: 500px;
+}
+
+header nav li{
+	font-size: 30px;
+}
+
+.legal{
+	font-size: 20px;
+	width: 600px;
+}
+
+.logoText{
+	font-size: 60px;
+}
+
+.aboutText{
+	font-size: 25px;
+}
+
+.leftText, .rightText{
+	top:15%;
+}
+

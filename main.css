@@ -120,7 +120,7 @@ header nav li:hover{
 .blog_tag article{
 	float: right;
 	width: 50%;
-	height: 200px;
+	height: 100%;
 	color: #fff;
 	//background-color: #CBCBCB;
 	text-align: center;
@@ -234,7 +234,7 @@ pre{
 
 /*************************Media Query***************************/
 
-@media only screen and (max-device-width: 850px){
+@media only screen and (max-width: 850px){
 	.blog_tag{
 		width: inherit;
 		float: none;
@@ -247,7 +247,7 @@ pre{
 	}
 }
 
-@media only screen and (max-device-width: 700px){
+@media only screen and (max-width: 700px){
 	body{
 		width: inherit;
 	}
@@ -409,7 +409,7 @@ pre{
 	margin-left: 10px;
 }*/
 
-@media only screen and (max-device-width: 730px){
+@media only screen and (max-width: 730px){
 	.separatorLeft, .separatorRight{
 		height: 50%;
 		width: 100%;
