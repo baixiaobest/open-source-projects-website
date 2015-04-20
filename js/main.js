@@ -15,9 +15,9 @@ $(document).ready(
 
 function setWayPointSlide(ID, slideInPos, optionalId){
 
-  var offsetVal = '60%';
+  var offsetVal = 0;
   if(window.matchMedia( "(max-device-width: 480px)" ).matches)
-    offsetVal = '60%';
+    offsetVal = 0;
 	var waypoint = new Waypoint({
   	element: document.getElementById(ID),
   	handler: function(direction) {
@@ -42,9 +42,9 @@ function setWayPointSlide(ID, slideInPos, optionalId){
 
 function setWayPointProperty(triggerID, ID, handlerUp, handlerDown){
 
-  var offsetVal = '60%';
+  var offsetVal = 0;
   if(window.matchMedia( "(max-device-width: 480px)" ).matches)
-    offsetVal = '60%';
+    offsetVal = 0;
   var waypoint = new Waypoint({
     element: document.getElementById(triggerID),
     handler: function(direction){
