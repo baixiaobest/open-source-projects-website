@@ -10,6 +10,7 @@ h2{
 p{
 	font-family: Verdana;
 	line-height: 1.5;
+	font-weight: lighter;
 }
 img{
 	display: block;
@@ -18,6 +19,11 @@ img{
 }
 a{
 	text-decoration: none;
+}
+.contents{
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
 }
 .intro{
 	font-style: italic;
@@ -36,5 +42,6 @@ em{
 	font-weight: bold;
 }
 .subTitle{
+	color: #56EEFA;
 	margin-left: 5%;
 }

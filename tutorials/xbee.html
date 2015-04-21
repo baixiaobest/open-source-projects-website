@@ -4,8 +4,9 @@
 			<title>xBee tutorial</title>
 			<link rel="stylesheet" href="../main.css">
 			<link rel="stylesheet" href="blog.css">
+			<link rel="stylesheet" type="text/css" href="../mobile.css" media="only screen and (max-device-width: 480px)" />
 			<link href="../google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
-			<script type="text/javascript" src="../google-code-prettify/prettify.js"></script>
+			<script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 		</head>
 		
 		<body onload="prettyPrint()">
@@ -18,7 +19,7 @@
 						<ul>
 							<li><a href="../home.html">Home</a></li>
 							<li><a href="../projects.html">Projects</a></li>
-							<li><a href="../tutorials.html">Tutorials</a></li>
+							<li class="selectedNav"><a href="../tutorials.html">Tutorials</a></li>
 							<li><a href="../aboutme.html">About me</a></li>
 							<li><a href="../contact.html">Contact</a></li>
 						</ul>
@@ -73,6 +74,7 @@
 					<li>Download XCTU software: software used to interfacing xBee explorer</li>
 					<li>1 Arduino</li>
 					<li>1 PC</li>
+					<li>1 xBee shield (recommended)</li>
 				</ul>
 				<p>So let's pair two xBees up and let them talk.</br>
 				Plug your xBee to explorer, connect explorer to computer and launch the XCTU software.
@@ -87,8 +89,97 @@
 				<em>PAN ID:</em> It stands for Personal Area Network. It defines in which network a xBee resides. Thus you need to put all xBees inside the <strong>same</strong> network to let them talk. You can defines the number vary from 0x0000 to 0xFFFF in hexadecimal.<br/><br/>
 				<em>MY</em>: The address of currently selected xBee module. It serves as an ID number for your xBee.<br/><br/>
 				<em>DL,DH</em>: This two defines the destination address (or MY address) of xBee you are talking to.
-				Normally, you need to set the DH to 0 and DL to the MY address of destination xBee.
+				Normally, you need to set the DH to 0 and DL to the MY address of destination xBee.<br/><br/>
 				</p>
+				<p>Lets go ahead and change the value of first xBee:</p>
+
+				<ul>
+					<li>Channel: set to C (whatever you want as long as it is the same with the other xBee)</li>
+					<li>Pan ID: set to 1234 (actually whatever you want as long as it is with the range)</li>
+					<li>DH: set to zero</li>
+					<li>DL: set to 1001 (MY address of the other xBee)</li>
+					<li>MY: set to 1000</li>
+				</ul>
+
+				<p>Then set up the other xBee exactly the same way except that DL and MY value of the other xBee are swapped. Then you are done, you make two xBees to be a pair network!<br/>
+				</p>
+				<ul>
+					<li>Channel: set to C (whatever you want as long as it is the same with the other xBee)</li>
+					<li>Pan ID: set to 1234 (actually whatever you want as long as it is with the range)</li>
+					<li>DH: set to zero</li>
+					<li>DL: set to 1000 (MY address of the previous xBee)</li>
+					<li>MY: set to 1001</li>
+				</ul>
+
+				<h2 class="subtitle">Wiring for xBee and Arduino</h2>
+				<p>
+				You can keep one of the xBee plugged to the explorer and computer, because we will send data from the computer. And then plug the other xBee to xBee shield, which is in turn plugged to Arduino.<br/>
+				It looks like this: 
+				</p>
+				<figure width="70%">
+					<img alt="arduino with shield" src="http://playground.arduino.cc/uploads/Shields/XBeeBoard03_2.jpg">
+					<caption>Source: playground.arduino.cc</caption>
+				</figure>
+				<p>
+					If you don't have xBee shield, you can hook up xBee with arduino with minimum wiring.
+				</p>
+				<figure>
+					<img alt="xBee minimum wiring" width="100%" src="../images/tutorials_page/xbeeMinimumWiring.png">
+				</figure>
+				<p>
+					So the wiring is pretty easy. You simply connect the xBee power pin (pin 1) to 3.3 volt (not 5V) supply of arduino, and xBee ground (pin 10) to Arduino ground. As for data wire, you connect Data Out pin of xBee (pin 2) to the TX pin of arudino and Data In pin (pin 3) to the RX pin. This enables Arduino to read and write data with xBee through serial communication.
+				</p>
+
+				<h2 class="subtitle">Teach Arduino talk with xBee</h2>
+				<p>
+					No hardwork so far, just simple setup. Now we are going to code the arduino, teach him to talk!<br/>
+					As I have metioned, Arduino interfaces with xBee through <strong>Serial Communication</strong>.
+					Thus, we do not need any external library to talk to xBee, sweet! Arduino serial reads data from RX pin and send data through TX pin, so we only need to figure out how to send data through those two pins. So let's jump into the code.
+				</p>
+
+<pre class="prettyprint linenums lang-c">
+void setup(){
+  Serial.begin(9600);
+}
+void loop(){
+  if(Serial.available()){
+    Serial.print("I Got: ");
+    Serial.println(Serial.readStringUntil('\n'));
+  }
+}
+</pre>
+
+			<p>
+				This looks very familiar, if you have used Serial Monitor on Arduino IDE before.<br/>
+				Yes, Serial in the code segment can deal with the communication with either USB connection 
+				or Tx Rx pins. It works the same way as you would talk to arduino through USB.
+				But in this case, serial connection is bridged between Arduino and xBee instead of between Arduino 
+				and Serial monitor.<br/><br/>
+				Alright, let's look at what does the code do. In every loop of program, arduino check if there is 
+				any data available from xBee it connected to. If there are incomming data, then arduino reads the 
+				data from the xBee, and appends that data to "I Got: " string and sends the message back to xBee. So
+				that the xBee will send the data to another xBee connected to the computer.<br/>
+				Notice that Serial.readStringUntil('\n') reads a line from data stream; Read is complete only when 
+				Arduino encounters newline character, which is '\n'.
+				<br/><br/>
+			</p>
+
+			<h2 class="subtitle">Let's try sending data from PC</h2>
+			<p>Remember that the other xBee is plugged to computer through xBee explorer? We are going to send data 
+			through that xBee. No coding in this part, just open XCTU and connect to the explorer as we did before. 
+			Click on the monitor tab on upper right of screen, allowing you to send data through a monitor.<br/>
+			Type hello. Then you will see "hello" in blue (characters in blue represent sent data) and you will also 
+			get back "I Got: hello" in red (characters in red represent received data).
+			</p>
+			<figure>
+				<img width="100%" alt="XCTU send data" src="../images/tutorials_page/XCTU_sendData.png">
+			</figure>
+
+			<p>
+				If you reach this point, you have successfully sent data to the Arduino, which is "hello", through 
+				your pc to the Arduino and successfully received the data from the Arduino, which is "I Got: hello"!
+			</p>
+
 			</section>
 
 
